@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci Series Generator</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Fibonacci Series Generator</h2>
+
+  <div class="field">
+    <label for="fibInput">Enter number of terms (n):</label>
+    <input type="number" id="fibInput" placeholder="e.g. 8" min="1" />
+  </div>
+
+  <button onclick="generateFibonacci()">Generate Series</button>
+
+  <div id="result"></div>
+
+  <script>
+    function generateFibonacci() {
+      const val = document.getElementById("fibInput").value.trim();
+      const res = document.getElementById("result");
+
+      if (val === "" || isNaN(val)) {
+        res.textContent = "Please enter a valid number of terms.";
+        return;
+      }
+
+      const n = Number(val);
+
+      if (n <= 0) {
+        res.textContent = "Please enter a number greater than 0.";
+        return;
+      }
+
+      const series = [];
+      let a = 0, b = 1;
+
+      for (let i = 0; i < n; i++) {
+        series.push(a);
+        let next = a + b;
+        a = b;
+        b = next;
+      }
+
+      res.textContent = `Fibonacci Series (${n} terms): ${series.join(", ")}`;
+    }
+  </script>
+
+</body>
+</html>

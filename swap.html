@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Two Numbers</title>
+    <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9ecef;
+            border-left: 5px solid #007bff;
+            white-space: pre-line;
+        }
+    </style> -->
+</head>
+<body>
+
+<div class="container">
+    <h2>Number Swapper</h2>
+    
+    <div class="input-group">
+        <label for="firstInput">Enter first number (a):</label>
+        <input type="number" id="firstInput" value="5">
+    </div>
+    
+    <div class="input-group">
+        <label for="secondInput">Enter second number (b):</label>
+        <input type="number" id="secondInput" value="10">
+    </div>
+    
+    <button onclick="swapNumbers()">Swap Numbers</button>
+    
+    <div id="output" class="result-box" style="display: none;"></div>
+</div>
+
+<script>
+function swapNumbers() {
+    // Get values from the HTML input fields
+    const firstInput = document.getElementById("firstInput").value;
+    const secondInput = document.getElementById("secondInput").value;
+
+    // Convert inputs to numbers just like your original code
+    let a = Number(firstInput);
+    let b = Number(secondInput);
+
+    // Capture the initial state
+    let logText = `Before swapping:\na = ${a}\nb = ${b}\n\n`;
+
+    // The identical array destructuring swap logic from your code
+    [a, b] = [b, a];
+
+    // Capture the swapped state
+    logText += `After swapping:\na = ${a}\nb = ${b}`;
+
+    // Display the results in the browser window
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerText = logText;
+    outputDiv.style.display = "block";
+}
+</script>
+
+</body>
+</html>

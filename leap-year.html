@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leap Year Checker</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Leap Year Checker</h2>
+
+  <div class="field">
+    <label for="yearInput">Enter a year:</label>
+    <input type="number" id="yearInput" placeholder="e.g. 2024" />
+  </div>
+
+  <button onclick="checkLeapYear()">Check Year</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkLeapYear() {
+      const inputVal = document.getElementById("yearInput").value.trim();
+      const res = document.getElementById("result");
+
+      if (inputVal === "" || isNaN(inputVal)) {
+        res.textContent = "Please enter a valid year.";
+        return;
+      }
+
+      const year = Number(inputVal);
+
+      // Leap year logic: divisible by 4 AND (not 100 OR is 400)
+      const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+
+      if (isLeap) {
+        res.textContent = `${year} IS a leap year (366 days).`;
+      } else {
+        res.textContent = `${year} is NOT a leap year (365 days).`;
+      }
+    }
+  </script>
+
+</body>
+</html>

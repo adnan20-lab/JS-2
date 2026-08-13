@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse Number</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Reverse Number Calculator</h2>
+
+  <div class="field">
+    <label for="revInput">Enter a number:</label>
+    <input type="number" id="revInput" placeholder="e.g. 12345" />
+  </div>
+
+  <button onclick="reverseNumber()">Reverse</button>
+
+  <div id="result"></div>
+
+  <script>
+    function reverseNumber() {
+      const val = document.getElementById("revInput").value.trim();
+      const res = document.getElementById("result");
+
+      if (val === "") {
+        res.textContent = "Please enter a valid number.";
+        return;
+      }
+
+      const isNegative = val.startsWith("-");
+      const cleanStr = val.replace("-", "");
+      const reversedStr = cleanStr.split("").reverse().join("");
+      const resultNum = isNegative ? `-${reversedStr}` : reversedStr;
+
+      res.textContent = `Reversed Number: ${resultNum}`;
+    }
+  </script>
+
+</body>
+</html>

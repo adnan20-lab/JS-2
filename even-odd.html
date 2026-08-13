@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even or Odd Checker</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Even or Odd Checker</h2>
+
+  <div class="field">
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" placeholder="e.g. 7" />
+  </div>
+
+  <button onclick="checkEvenOdd()">Check Number</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkEvenOdd() {
+      const inputVal = document.getElementById("numberInput").value;
+      const num = Number(inputVal);
+      const resultDiv = document.getElementById("result");
+
+      if (inputVal.trim() === "" || isNaN(num)) {
+        resultDiv.textContent = "Please enter a valid number.";
+        return;
+      }
+
+      if (num % 2 === 0) {
+        resultDiv.textContent = `${num} is Even.`;
+      } else {
+        resultDiv.textContent = `${num} is Odd.`;
+      }
+    }
+  </script>
+
+</body>
+</html>

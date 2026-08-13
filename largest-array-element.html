@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Largest Array Element</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Largest Array Element Finder</h2>
+
+  <div class="field">
+    <label for="arrayInput">Enter numbers (separated by commas):</label>
+    <input type="text" id="arrayInput" placeholder="e.g. 10, 45, 2, 99, 34" />
+  </div>
+
+  <button onclick="findLargestInArray()">Find Largest</button>
+
+  <div id="result"></div>
+
+  <script>
+    function findLargestInArray() {
+      const inputStr = document.getElementById("arrayInput").value.trim();
+      const res = document.getElementById("result");
+
+      if (inputStr === "") {
+        res.textContent = "Please enter comma-separated numbers.";
+        return;
+      }
+
+      // Convert input string into an array of numbers
+      const numArray = inputStr
+        .split(",")
+        .map((item) => Number(item.trim()))
+        .filter((num) => !isNaN(num) && itemVal(num));
+
+      function itemVal(val) {
+        return val !== "";
+      }
+
+      if (numArray.length === 0) {
+        res.textContent = "Please enter valid numbers.";
+        return;
+      }
+
+      const largest = Math.max(...numArray);
+
+      res.textContent = `Array: [${numArray.join(", ")}] → Largest: ${largest}`;
+    }
+  </script>
+
+</body>
+</html>
