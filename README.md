@@ -1,4 +1,2 @@
-hello from this side
-
-# "This is the REPO version"
-# Save the file, then run:
+hello, world!
+This is the REPO version of the text.
